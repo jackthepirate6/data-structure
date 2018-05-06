@@ -6,4 +6,5 @@ various Data Structure C++ codes
 Done By me(Special)
 
 1. djikstra.cpp
-2. 
+2. hash-chaining.cpp
+3.
