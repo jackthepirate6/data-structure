@@ -56,18 +56,23 @@ void Hash::deleteItem(int key)
   // find the key in (inex)th list
   list <int> :: iterator i;
   i = table[index].begin();
-  while(*i !=key)
-	{index = index + hashFunction2(key);
-         index = index % BUCKET;
-         if(index == hashFunction(key))
-		{cout<<"key not found"<<endl;
-                 break;}
-         i = table[index].begin();
-         if (*i == key)
-              {table[index].erase(i);
-               break;
-              }
-         }
+  if(*i == key)
+  {
+	  table[index].erase(i);
+  }else	{
+  	while(*i !=key)
+		{index = index + hashFunction2(key);
+         	index = index % BUCKET;
+         	if(index == hashFunction(key))
+			{cout<<"key not found"<<endl;
+                 	break;}
+         	i = table[index].begin();
+         	if (*i == key)
+              		{table[index].erase(i);
+               		break;
+              		}
+         	}
+  	}
 }
  
 // function to display hash table
