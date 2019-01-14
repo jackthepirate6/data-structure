@@ -54,14 +54,16 @@ void Hash::deleteItem(int key)
   while(*i !=key)
 	{index++;
          index = index%BUCKET;
-         if(index == hashFunction(key))
-		{cout<<"key not found"<<endl;
-                 break;}
          i = table[index].begin();
          if (*i == key)
               {table[index].erase(i);
                break;
               }
+	 if(index == hashFunction(key))
+	 	{
+		 cout<<"key not found"<<endl;
+		 break;
+	 	}
          }
 }
  
